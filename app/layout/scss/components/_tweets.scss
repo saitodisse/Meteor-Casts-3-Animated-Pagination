@@ -1,0 +1,106 @@
+.tweets-container{
+  overflow: hidden;
+  margin: -30px;
+  padding: 30px;
+}
+.tweets {
+
+
+  .alert-info{
+    text-align: center;
+    border: 0px;
+    margin: -30px;
+    border-radius: 0px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    &.tweets-enter{
+      transition: 500ms;
+      opacity: 0;
+      height: 0px;
+      padding: 0px;
+    }
+    &.tweets-enter-active{
+      opacity: 1;
+      height: 50px;
+      padding:15px;
+    }
+    &.tweets-leave{
+      transition: 300ms;
+      opacity:1;
+      max-height: 100px;
+      padding: 15px;
+    }
+    &.tweets-leave-active{
+      opacity: 0;
+      max-height: 0px;
+      padding: 0px;
+    }
+  }
+  .tweet {
+    display: flex;
+    margin-bottom: 20px;
+    .avatar {
+      flex: 0 1 105px;
+      img {
+        width: 75px;
+        height: 75px;
+        background-color: #aaa;
+        border-radius: 4px;
+      }
+    }
+    .content {
+      .header{
+        p{
+          font-weight: bold;
+          display: inline-block;
+          span.value{
+            font-weight: normal;
+            margin: 0 10px;
+            color: #aaa;
+            font-weight: normal;
+          }
+        }
+      }
+      .main {
+        p{
+          //font-weight: bold;
+        }
+      }
+      .meta{
+        p{
+          color: #aaa;
+          font-weight: bold;
+          display: inline-block;
+          .fa{
+            margin-right: 5px;
+            &.fa-heart{
+              color: pink;
+            }
+            &.fa-retweet{
+              color: #516e80;
+            }
+          }
+          span.value{
+            font-weight: normal;
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+    &.tweets-enter{
+      transition: 400ms;
+      transform: translateX(-120%);
+      max-height: 0px;
+      @for $i from 1 through 50 {
+        &:nth-child(#{$i}) {
+          transition-delay: 50ms * ($i - 1);
+        }
+      }
+    }
+    &.tweets-enter-active{
+      transform: translateX(0);
+      max-height: 100px;
+    }
+  }
+
+}
