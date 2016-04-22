@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react';
 
 class MainLayout extends React.Component {
   render() {
@@ -13,8 +13,12 @@ class MainLayout extends React.Component {
           { this.props.content }
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default MainLayout
+MainLayout.propTypes = {
+  content: PropTypes.object,
+};
+
+export default MainLayout;

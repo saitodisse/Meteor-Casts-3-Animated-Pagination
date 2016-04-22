@@ -1,6 +1,6 @@
-import React from 'react'
-import Tweet from './Tweet'
-import ReactTransitionGroup from 'react-addons-css-transition-group'
+import React, { PropTypes } from 'react';
+import Tweet from './Tweet';
+import ReactTransitionGroup from 'react-addons-css-transition-group';
 
 class Home extends React.Component {
   render() {
@@ -11,18 +11,24 @@ class Home extends React.Component {
                               transitionName="tweets"
                               transitionEnterTimeout={500}
                               transitionLeaveTimeout={500}>
-          {this.props.tweets.map((tweet) => {
-            return (
-              <Tweet key={tweet._id} tweet={tweet}/>
-            )
-          })}
+
+          {this.props.tweets.map((tweet) => (
+            <Tweet key={tweet._id} tweet={tweet}/>
+          ))}
+
         </ReactTransitionGroup>
         <div className="load-more-tweets">
           <button onClick={this.props.loadMore} className="btn">Load More</button>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Home
+Home.propTypes = {
+  tweets: PropTypes.array,
+  tweet: PropTypes.object,
+  loadMore: PropTypes.func,
+};
+
+export default Home;
