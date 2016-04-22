@@ -9,6 +9,7 @@ parserOptions:
 plugins:
   - meteor
   - react
+
 # use the rules of eslint-config-airbnb
 # and the recommended rules of eslint-plugin-meteor
 extends:
@@ -24,11 +25,6 @@ env:
 
 
 rules:
-  # # overwrite some rules (avoid semicolons)
-  # semi: [2, 'never']
-  # no-unexpected-multiline: 2
-  # no-throw-literal: 0
-
   # eslint-plugin-meteor
   meteor/no-session: [0] # allow Session
   meteor/prefer-session-equals: [2] # prefer Session.equals instead
@@ -43,13 +39,10 @@ rules:
   import/no-unresolved: 0
 
 globals:
-  # collections
-  React: false
+  # packages
   faker: false
   SimpleSchema: false
-  # Bar: false
-
-  # packages
   FlowRouter: false # kadira:flow-router
-  GoogleMaps: false # dburles:google-maps
+  React: false
   moment: false # momentjs:moment
+  # collections
